@@ -13,6 +13,7 @@ import javafx.scene.media.MediaView;
 
 public class Video{
     Random ran = new Random();
+    ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("catto.png"));
     String videoFile = "";
     private int selector = ran.nextInt(1,3);
     JFrame frame;
@@ -41,6 +42,7 @@ public class Video{
 
         createScene();
         frame.setTitle("Video");
+        frame.setIconImage(image.getImage());
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setResizable(false);
         frame.setLayout(new BorderLayout());

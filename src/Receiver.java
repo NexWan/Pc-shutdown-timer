@@ -11,6 +11,7 @@ public class Receiver implements ActionListener {
     JLabel label;
     JTextField textField;
     JButton button;
+    ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("catto.png"));
     public Receiver(){
         Frames();
     }
@@ -21,6 +22,7 @@ public class Receiver implements ActionListener {
         frame.setLayout(new BorderLayout(10,5));
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
+        frame.setIconImage(image.getImage());
 
         button = new JButton("Submit");
         button.addActionListener(this);
