@@ -44,6 +44,13 @@ public class Receiver implements ActionListener {
         frame.add(label,BorderLayout.SOUTH);
         frame.pack();
         frame.setVisible(true);
+
+        /*TODO
+        * Add a file receiver so any user can select what video to play.
+        * Add a checkbox component to select if the time goes in seconds, minutes, hours etc...
+        * Fix problem when sometimes the video wont load
+        * that's pretty much it.
+        * */
     }
 
     @Override

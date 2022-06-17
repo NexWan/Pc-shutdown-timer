@@ -1,12 +1,14 @@
 import javax.swing.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.text.DecimalFormat;
 import java.util.*;
 import java.util.Timer;
 
 public class Shutdown {
     TimerTask timerTask;
     Timer timer = new Timer();
+    DecimalFormat df = new DecimalFormat("#.##");
 
     public Shutdown(int time) throws URISyntaxException, IOException {
         try {
@@ -38,7 +40,8 @@ public class Shutdown {
                     SwingUtilities.invokeLater(() -> {
                         try {
                             new Video();
-                            JOptionPane.showMessageDialog(null, (double)(time/60) + " minutes for the pc to shutdown");
+                            double timeD = time;
+                            JOptionPane.showMessageDialog(null, df.format((timeD/60)) + " minutes for the pc to shutdown");
                         } catch (URISyntaxException | IOException e) {
                             throw new RuntimeException(e);
                         }
