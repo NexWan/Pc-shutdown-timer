@@ -15,7 +15,7 @@ public class Video{
     Random ran = new Random();
     ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("catto.png"));
     String videoFile = "";
-    private int selector = ran.nextInt(1,3);
+    private int selector = ran.nextInt(1,4);
     JFrame frame;
     JPanel panel;
     int width, height;
@@ -35,7 +35,9 @@ public class Video{
                 height = 430;
                 break;
             case 3:
-
+                videoFile = "frog.mp4";
+                width = 520;
+                height = 400;
                 break;
 
         }
