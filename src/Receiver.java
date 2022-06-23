@@ -10,7 +10,9 @@ public class Receiver implements ActionListener {
     JFrame frame;
     JLabel label;
     JTextField textField;
+    JComboBox comboBox;
     JButton button;
+    String[] list = {"Seconds","minutes","hours"};
     ImageIcon image = new ImageIcon(getClass().getClassLoader().getResource("catto.png"));
     public Receiver(){
         Frames();
@@ -35,12 +37,16 @@ public class Receiver implements ActionListener {
         label = new JLabel();
         label.setPreferredSize(new Dimension(250,50));
         label.setLayout(new BorderLayout());
-        label.setText("Introduce the time for the pc to shutdown in seconds!");
+        label.setText("Introduce the time for the pc to shutdown!");
         label.setHorizontalAlignment(JLabel.CENTER);
         label.setVisible(true);
 
+        comboBox = new JComboBox(list);
+        comboBox.setSize(100,40);
+
         frame.add(textField,BorderLayout.CENTER);
         frame.add(button,BorderLayout.WEST);
+        frame.add(comboBox, BorderLayout.EAST);
         frame.add(label,BorderLayout.SOUTH);
         frame.pack();
         frame.setVisible(true);
@@ -58,6 +64,18 @@ public class Receiver implements ActionListener {
         if(e.getSource()== button){
             try{
                 time = Integer.parseInt(textField.getText());
+                int selected = comboBox.getSelectedIndex();
+                switch (selected){
+                    case 0:
+                        time = time;
+                        break;
+                    case 1:
+                        time = (time*60);
+                        break;
+                    case 2:
+                        time = (time*3600);
+                        break;
+                }
                 System.out.println(time);
                 new Shutdown(time);
                 frame.dispose();

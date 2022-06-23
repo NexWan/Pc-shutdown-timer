@@ -33,7 +33,7 @@ public class Shutdown {
 
             };
             timer.schedule(timerTask, secTime);
-        }else if(time < 300){
+        }else if(time < 300 || time == 300){
             timerTask = new TimerTask() {
                 @Override
                 public void run() {
@@ -51,8 +51,5 @@ public class Shutdown {
             };
             timer.schedule(timerTask, 1);
         }
-
-
-
     }
 }
